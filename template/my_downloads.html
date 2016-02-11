@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+         <div align="left" style="margin-left:175px">
+               <h2 align="left"><b>My Download History</b></h2>
+            <div style="float:left;font-size:14pt;"><br>
+      {% if num == 0 %}
+      <p>You haven't downloaded any materials yet.</p>
+      {% else %}
+      <ul>
+      {% for download in downloads %}
+      <li>
+          {{ download.time }} : <a href="{% url 'material' download.material.id %}" style="font-size:12pt;color:blue;">
+          {{ download.material.name }}</a>
+      </li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+
+</div>
+
+            <br /><br /><br />
+            
+            </div>
+            </div>
+         </div>
+       <hr color="#d0d0d0">
+         </div>
+      </section>
+
+{% endblock %}

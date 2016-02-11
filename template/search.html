@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+      <script type="text/javascript">
+        function likeresponse(){
+          {% if not liked %}{
+            alert("You have successfully liked this material!");
+          } {% else %}{
+            alert("You have already liked this material!");
+          }{% endif %}
+        }
+
+        function removeresponse(){
+          alert("You have successfully removed this material!");
+        }
+
+        function rateresponse(){
+          alert("You have successfully submitted your rating and comment!");
+        }
+      
+        function downloadresponse(){
+          var se=confirm("Do you want to download this material?");
+          if (se==true){
+            alert("Downloading confirmed!");
+          }else{
+            alert("Cancelled");
+          }
+        }
+      </script>
+{% endblock %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+         <div align="left" style="margin-left:175px">
+               <h2 align="left"><b>Search Results</b></h2>
+
+         <div id="third-block-results">
+     <div class="line">
+       <table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><h4 align="left" color="#d0d0d0">{{ num }} Material(s) Are Found</h4></td><td align="right"><form action="" method="post">{% csrf_token %}<p color="gray">Sort by:&nbsp;&nbsp;&nbsp;<input type="submit" name = "popularity" value="Popularity"/> | <input type="submit" name = "rating" value="Average Rating" /></p></form></td></tr>
+       </tbody></table>
+        <div id="subpage">
+        {% if num != 0 %}
+        {% for material,rating in ratings %}
+       <table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td width="1000"><h4><b>{{material.name}}</b><br /><span style="font-size:12pt;">Author: {{material.author}}; Uploaded by: <a href="{% url 'profile' material.uploader.id %}" style="font-size:12pt;color:blue;">{{material.uploader.first_name}} {{material.uploader.last_name}}</a><br /></h4>{% if rating == 5 %}<img src="/static/img/5stars.jpg" width="20px;" />{% endif %}
+        {% if rating == 4 %}<img src="/static/img/4stars.png" width="20px;" />{% endif %}
+        {% if rating == 3 %}<img src="/static/img/3stars.jpg" width="20px;" />{% endif %}
+        {% if rating == 2 %}<img src="/static/img/2stars.jpg" width="20px;" />{% endif %}
+        {% if rating == 1 %}<img src="/static/img/1star.png" width="20px;" />{% endif %}
+        {% if rating == 0 %}<img src="/static/img/nostar.png" width="20px;" />{% endif %}</td><td><br /><h4><a href="{% url 'material' material.id %}" style="font-size:12pt;color:blue;">View</a></h4></td></tr></tbody></table>
+       <table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td></td></tr></tbody></table>
+    </form>
+       {% endfor %}
+       {% else %}
+            <p>Sorry, no materials are found. Please try other terms!</p>
+        {% endif %}
+        <br />
+        <h4><b>Search Again:</b></h4>
+            <div align="center">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" name = "search" value="Search"/>
+            </form>
+            </div>
+
+            <br /><br /><br />
+            
+            </div>
+            </div>
+         </div>
+       <hr color="#d0d0d0">
+         </div>
+         </div>
+      </section>
+
+{% endblock %}

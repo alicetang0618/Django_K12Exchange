@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+			<div align="left" style="margin-left:175px">
+               <h2 align="left"><b>My Profile</b></h2>
+			   <div style="float:left;font-size:14pt;"><br>
+    <ul>
+    <li>My name: {{user.first_name}} {{user.last_name}}</li>
+    <li>Account type: {{user.user_type}}</li>
+    <li>Email: {{user.email}}</li>
+    <li>School: {{user.school}}</li>
+    <li>School Type: {{user.grade}}, {{user.school_type}}, {{user.geography}}</li>
+    <li>City: {{user.city}}</li>
+    <li>state: {{user.state}}</li>
+    <li>Introduction: {{user.introduction}}</li>
+  </ul><br />
+    <img src = "{{ MEDIA_URL }}{{user.picture}}" style="width:600px;"/>
+
+    <br></br><a href="/modify_profile/" style="color:blue;">Modify My Profile</a>
+    <br></br><a href="{% url 'profile' user.id %}" style="color:blue;">View My Profile: Public Available Version</a><br></br>
+</div>
+
+			   <br /><br /><br />
+			   
+            </div>
+            </div>
+         </div>
+		 <hr color="#d0d0d0">
+         </div>
+      </section>
+
+{% endblock %}

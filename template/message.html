@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <script type="text/javascript">
+
+            function response(){
+                alert("You have successfully submitted your message!");
+            }
+
+    </script>
+{% endblock %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+         <div align="left" style="margin-left:175px">
+               <h2 align="left"><b>View Message</b></h2>
+            <div style="float:left;font-size:14pt;"><br>
+            <p>Sender: {{message.sender.first_name}} {{message.sender.last_name}}</p>
+            <p>Time: {{message.time}}</p>
+            <p>Message: {{message.text}}</p>
+            <br />
+            <h4>Reply to the Sender / Send Another Message</h4>
+            <form action="" method="post">
+                      {% csrf_token %}
+                      {{ messageform.as_p }}<br />
+            <input type="submit" onclick="response()" value="Send the Message">
+            </form>
+</div>
+
+            <br /><br /><br />
+            
+            </div>
+            </div>
+         </div>
+       <hr color="#d0d0d0">
+         </div>
+      </section>
+
+{% endblock %}

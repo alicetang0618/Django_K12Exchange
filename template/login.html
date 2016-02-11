@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+ <div id="third-block">
+            <div class="line">
+			<div align="left" style="margin-left:175px">
+               <h2 align="left"><b>Log In</b></h2>
+			   <div style="float:left;font-size:14pt;"><br>
+    <!--Login -->
+		<form id="login_form" action="" method="post">
+			{% csrf_token %}
+		    <label for="username">User name:</label>
+		    <input type="text" name="username" value="" id="username"><br />
+		    <label for="password">Password:</label>
+		    <input type="password" name="password" value="" id="password">
+		    <br /><br />
+		    <input type="submit" value="submit" />
+		</form>
+</div>
+
+			   <br /><br /><br />
+			   
+            </div>
+            </div>
+         </div>
+		 <hr color="#d0d0d0">
+         </div>
+      </section>
+{% endblock %}

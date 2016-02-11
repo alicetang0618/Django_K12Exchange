@@ -1,0 +1,42 @@
+#first-block, #second-block, #third-block, #fourth-block {
+text-align:center;
+padding:3.5em 0;
+}
+#second-block {
+text-align:center;
+padding:0.5em 0;
+}
+#carousel {
+text-align:center;
+background:#e5e5e5;
+}
+#first-block {
+background:#fff;
+}
+#second-block {
+background:#e5e5e5;
+}
+#third-block {
+background:#fff;
+}
+#third-block form {line-height:1.4em; margin-top:0px;}
+#third-block-results {
+padding:1.5em 0;
+background:#fff;
+}
+#third-block-upload {
+padding:1.5em 0;
+background:#fff;
+}
+#fourth-block {
+background:#e5e5e5;
+}
+footer {
+background:#fff;
+padding:1.5em 0;
+}
+@media screen and (max-width: 800px) {
+  .right {
+  float:none;
+  }
+}

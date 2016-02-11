@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+               <h2><b>What are you teaching?</b> (Example: How to multiply two binomials)</h2>
+            <div align="center">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" name = "search" value="Search"/>
+            </form>
+            </div>
+            <br /><br /><br />
+<h2>Have some resources to share?  
+   {% if not user.is_authenticated %}
+   <a href="/join/" style="color:blue;text-decoration:underline;">Join</a> and 
+   {% endif %}
+   <a href="/upload/" style="color:blue;text-decoration:underline;">Upload</a> here.</a></h2>
+			   
+               </div>
+            </div>
+         </div>
+         <div id="fourth-block">
+            <div class="line">
+               <div id="owl-demo2">
+                  
+			   </div>
+                  <div style="float:left;">
+				  <img src="/static/img/plato.jpg" width="315px;" style="float: left;padding-right:20px;" />
+				  </div>
+				  <div>
+                     <h2 align="left">Featured Teacher: <b>Plato</b></h2>
+                     <p align="left"><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+                        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                        lobortis nisl ut aliquip ex ea commodo consequat.
+                     </p>
+					 <p align="left"><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+                        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                        lobortis nisl ut aliquip ex ea commodo consequat.
+                     </p>
+					 <p align="left"><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+                        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+                        lobortis nisl ut aliquip ex ea commodo consequat.
+                     </p>
+                  </div>
+                  
+               <!-- </div> -->
+            </div>
+         </div>
+      </section>
+{% endblock %}

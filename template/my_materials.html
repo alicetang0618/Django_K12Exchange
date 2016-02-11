@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+         <div align="left" style="margin-left:175px">
+               <h2 align="left"><b>My Materials</b></h2>
+            <div style="float:left;font-size:14pt;"><br>
+<p>Click on the name of a material to view or delete it!</p>
+    {% if num == 0 %}
+    <p>You don't have any materials.</p>
+    {% else %}
+    <ul>
+    {% for material in materials %}
+    <li>
+        <a href="{% url 'material' material.id %}" style="color:blue;">
+        {{ material.name }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <br />
+    <a href = '/upload/'>Upload A Material</a>
+</div>
+
+            <br /><br /><br />
+            
+            </div>
+            </div>
+         </div>
+       <hr color="#d0d0d0">
+         </div>
+      </section>
+
+{% endblock %}

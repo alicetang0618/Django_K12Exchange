@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block body %}
+         <!-- GALLERY CAROUSEL -->
+         <div id="third-block">
+            <div class="line">
+			<div align="left" style="margin-left:175px">
+               <h2 align="left"><b>Join the Teacher Resource Exchange!</b></h2>
+			   <div style="float:left;font-size:14pt;"><br>
+    <!--Register -->
+    {% if user.is_authenticated %}
+    <p>You have already logged in! Please log out before you register!</p>
+     <a href = "/logout/">Log Out</a><br/></br>
+    {% else %}
+      <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <br />
+          <input type="submit" value="Create an account">
+      </form>
+      <br></br>
+      <a href = "/login/">Log In</a><br/></br>
+    {% endif %}
+</div>
+
+			   <br /><br /><br />
+			   
+            </div>
+            </div>
+         </div>
+		 <hr color="#d0d0d0">
+         </div>
+      </section>
+
+{% endblock %}
